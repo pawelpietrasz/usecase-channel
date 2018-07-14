@@ -1,0 +1,28 @@
+#%RAML 1.0
+title: test
+mediaType: application/json
+types:
+
+  Account:
+    type: object
+    properties: 
+      AccountID:
+        type: string  
+        required: true
+        minLength: 5
+      Name:
+        type: string
+        required: true
+        minLength: 3
+      Type:
+        type: string
+        enum: [TYPE1, TYPE2, TYPE3]
+        required: true
+
+/account:
+    post:
+      body: 
+        type: Account[]
+      responses: 
+        200:
+          body:
